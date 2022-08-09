@@ -1,0 +1,16 @@
+{
+  "name": "mosquitto_to_mongodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "ne.js",
+  "scripts": {
+    "start": "nodemon send_to_mongodb.js"
+  },
+  "author": "topete",
+  "license": "ISC",
+  "dependencies": {
+    "mongodb": "^4.8.1",
+    "mqtt": "^4.3.7",
+    "nodemon": "^2.0.19"
+  }
+}
