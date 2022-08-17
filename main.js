@@ -6,7 +6,6 @@ var { mongo } = require("./mongointerface.js");
 var { parseCSV } = require("./CSV_handler");
 
 //ESTA FUNCIÓN SE ACTIVA CADA VEZ QUE LLEGA UN MENSAJE AL TOPIC SUBSCRIPTO
-
 client.on("message", function (topic_list, message, packet) {
   //convierto el mensaje a string
   var auxiliar = JSON.stringify(message);
@@ -27,7 +26,6 @@ client.on("error", function (error) {
   process.exit(1);
 });
 
-console.log("connected flag  " + client.connected);
 console.log("subscribing to topics");
-//client.subscribe(topic,{qos:1}); //single topic
-client.subscribe(topic_list, { qos: 1 }); //topic list
+client.subscribe(topic_list, { qos: 1 });
+console.log("connected flag  " + client.connected);
