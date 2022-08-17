@@ -1,8 +1,7 @@
 var mqtt = require("mqtt");
-var count = 0;
+var topic_list = ["/edificio1", "msg/edificio2", "msg/edificio3"];
 var client = mqtt.connect("mqtt://20.125.125.87", { clientId: "pc" });
 
-console.log("connected flag  " + client.connected);
 var { mongo } = require("./mongointerface.js");
 var { parseCSV } = require("./CSV_handler");
 
@@ -19,7 +18,7 @@ client.on("message", function (topic_list, message, packet) {
 });
 
 client.on("connect", function () {
-  console.log("Conectado!  " + client.connected);
+  console.log("status: " + client.connected);
 });
 
 //handle errors
@@ -28,13 +27,7 @@ client.on("error", function (error) {
   process.exit(1);
 });
 
-var topic_list = ["/edificio1", "msg/edificio2", "msg/edificio3"];
-//var topic_o={"topic22":0,"topic33":1,"topic44":1};
+console.log("connected flag  " + client.connected);
 console.log("subscribing to topics");
 //client.subscribe(topic,{qos:1}); //single topic
 client.subscribe(topic_list, { qos: 1 }); //topic list
-//client.subscribe(topic_o); //objectx
-
-//var timer_id=setInterval(function(){publish(topic,"holasaaaaaaaaaaaaaaaaaaaaaaa",options);},5000);
-//notice this is printed even before we connect
-console.log("end of script");
