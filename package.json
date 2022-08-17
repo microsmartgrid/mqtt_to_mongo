@@ -9,8 +9,10 @@
   "author": "topete",
   "license": "ISC",
   "dependencies": {
+    "csv-string": "^4.1.0",
     "mongodb": "^4.8.1",
     "mqtt": "^4.3.7",
+    "node-pandas": "^1.0.5",
     "nodemon": "^2.0.19"
   }
 }
