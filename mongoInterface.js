@@ -6,9 +6,8 @@ const mongo = (dato) => {
   MongoClient.connect(url, function (err, db) {
     if (err) throw err;
     var dbo = db.db("Mendoza");
-    var myobj = { dato };
 
-    dbo.collection("Edficio2").insertOne(myobj, function (err, res) {
+    dbo.collection("Edficio2").insertOne(dato, function (err, res) {
       if (err) throw err;
       console.log("Escrito correctamente.");
       db.close();
