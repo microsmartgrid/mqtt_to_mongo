@@ -28,34 +28,12 @@ client.on("error", function (error) {
   process.exit(1);
 });
 
-//publish
-function publish(topic, msg, options) {
-  console.log("publishing", msg);
-
-  if (client.connected == true) {
-    client.publish(topic, msg, options);
-  }
-  count += 1;
-  if (count == 2)
-    //ens script
-    clearTimeout(timer_id); //stop timer
-  client.end();
-}
-
-//////////////
-
-var options = {
-  retain: true,
-  qos: 1,
-};
-//var topic="topic";
-//var message="prueba";
 var topic_list = ["/edificio1", "msg/edificio2", "msg/edificio3"];
 //var topic_o={"topic22":0,"topic33":1,"topic44":1};
 console.log("subscribing to topics");
 //client.subscribe(topic,{qos:1}); //single topic
 client.subscribe(topic_list, { qos: 1 }); //topic list
-//client.subscribe(topic_o); //object
+//client.subscribe(topic_o); //objectx
 
 //var timer_id=setInterval(function(){publish(topic,"holasaaaaaaaaaaaaaaaaaaaaaaa",options);},5000);
 //notice this is printed even before we connect
