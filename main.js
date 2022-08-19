@@ -7,10 +7,8 @@ var { parseCSV } = require("./CSV_handler");
 
 //ESTA FUNCIÓN SE ACTIVA CADA VEZ QUE LLEGA UN MENSAJE AL TOPIC SUBSCRIPTO
 client.on("message", function (topic_list, message, packet) {
-  //convierto el mensaje a string
-  var auxiliar = JSON.stringify(message);
   //lo parseo
-  auxiliar = parseCSV(message);
+  var auxiliar = parseCSV(message);
   console.log(auxiliar);
   //lo envío a la base de datos
   mongo(auxiliar[0]);

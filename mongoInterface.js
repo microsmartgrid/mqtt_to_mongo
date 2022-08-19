@@ -1,6 +1,6 @@
 var MongoClient = require("mongodb").MongoClient;
 var url =
-  "mongodb://mongo:NLgGEi9qWIOfQtQ6OYfJ@containers-us-west-85.railway.app:5839";
+  "mongodb://mongo:LR5R7vsdg6iLoZZFnv7x@containers-us-west-30.railway.app:7773";
 
 const mongo = (dato) => {
   MongoClient.connect(url, function (err, db) {
