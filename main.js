@@ -5,7 +5,7 @@ var client = mqtt.connect("mqtt://20.125.125.87", { clientId: "pc" });
 var { mongo } = require("./mongointerface.js");
 var { parseCSV } = require("./CSV_handler");
 
-//ESTA FUNCIÓN SE ACTIVA CADA VEZ QUE LLEGA UN MENSAJE AL TOPIC SUBSCRIPTO
+//asjhdklajsESTA FUNCIÓN SE ACTIVA CADA VEZ QUE LLEGA UN MENSAJE AL TOPIC SUBSCRIPTO
 client.on("message", function (topic_list, message, packet) {
   //lo parseo
   var auxiliar = parseCSV(message);
